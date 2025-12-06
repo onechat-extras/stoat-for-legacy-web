@@ -60,12 +60,11 @@ export default observer((props: Props) => {
 
     useEffect(() => {
         if (!geoLoaded) {
-            fetch("https://geo.revolt.chat")
-                .then((res) => res.json())
-                .then((data) => {
-                    geoBlock = data;
-                    setGeoLoaded(true);
-                });
+            geoBlock = {
+                countryCode: "US", 
+                isAgeRestrictedGeo: false
+            }
+            setGeoLoaded(true);
         }
     }, []);
 
